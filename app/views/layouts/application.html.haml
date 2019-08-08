@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type'}
+    %meta{content: 'IE=edge', 'http-equiv': 'X-UA-Compatible'}
+    %meta{content: 'width=device-width, initial-scale=1, shrink-to-fit=no', name: 'viewport'}
+    = render 'layouts/meta_tags'
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{async: '', src: 'https://cdn.ywxi.net/js/1.js', type: 'text/javascript'}
+  %body.fixed-nav.sticky-footer.bg-dark#page-top
+    .flash_messages_div
+      = bootstrap_flash
+    - if current_user
+      = render 'layouts/navigation'
+      .content-wrapper  
+        = yield
+        = render 'layouts/footer'
+    - else
+      = yield

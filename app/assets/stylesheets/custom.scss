@@ -1,0 +1,41 @@
+body.sticky-footer .content-wrapper{
+  min-height: calc(92vh - 56px - 51px) !important;
+}
+
+.pagination{
+  border: 1px solid #DDE1E6;
+}
+.pagination a, .pagination span, .pagination em{
+  padding: .5rem .75rem;
+  border-right: 1px solid #DDE1E6;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+.pagination .next_page{
+  border-right: none;
+}
+.pagination .current{
+  color: #fff;
+  background-color: #007bff;
+}
+.pagination .disabled{
+  color: #6c757d
+}
+
+.paginator{
+  float: right;
+  margin-bottom: 20px;
+}
+
+.project-container .report_data_table tbody tr td a{
+  text-decoration: none !important;
+  margin-right: 5px;
+}
+
+.project-filters-section .form-control, .project-filters-section .btn-primary{
+	margin: 5px;
+}
+
+.new-resource-section{
+  float: right;
+}

@@ -1,0 +1,17 @@
+= form_for @user_project, url: project_project_members_path(@project.id), html: {class: "form-horizontal center user-project-validation"} do |f|
+  .container.user_details
+    %h3= "Add Member"
+    .card
+      .card-body
+        .row
+          .col-md-12
+            .form-group
+              %label.pull-left
+                Member
+              = f.select(:user_id, user_list, {}, {:class => "form-control custom-select"})
+              .field-error
+                = show_error(f.object, :user_id)
+            %center
+              .form-group
+                .actions
+                  = f.submit 'Save', class: 'btn btn-primary'

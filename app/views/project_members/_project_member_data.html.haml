@@ -1,0 +1,8 @@
+%tr
+  %td=project_member.first_name
+  %td=project_member.last_name
+  %td=project_member.email
+  %td
+    =link_to project_project_member_path(@project.id, get_user_project(project_member, @project)), method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete" do
+      %i.fa.fa-trash
+

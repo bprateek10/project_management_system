@@ -1,0 +1,17 @@
+= form_for @project, html: {class: "form-horizontal center project-validation"} do |f|
+  .container.user_details
+    %h3= params[:action] == "edit" ? "Edit Project" : "Create Project"
+    .card
+      .card-body
+        .row
+          .col-md-12
+            .form-group
+              %label.pull-left
+                Title
+              = f.text_field :title, class: "form-control"
+              .field-error.server-validation
+                = show_error(f.object, :question)
+            %center
+              .form-group
+                .actions
+                  = f.submit 'Save', class: 'btn btn-primary'

@@ -10,3 +10,5 @@ $(document).on 'turbolinks:load', ->
     $(@closest('.form-group')).find('.server-validation').hide()
     return
   return
+  
+  $('.custom-select').select2 placeholder: 'Developer Name'

@@ -1,0 +1,31 @@
+= form_for @todo, url: form_action, html: {class: "form-horizontal center todo-validation"} do |f|
+  .container.user_details
+    %h3= params[:action] == "edit" ? "Update Status" : "Add Todo"
+    .card
+      .card-body
+        .row
+          .col-md-12
+            - if params[:action] == "edit"
+              .form-group
+                %label.pull-left
+                  Status
+                = f.select(:status, todo_statuses, {}, {:class => "form-control"})
+                .field-error
+                  = show_error(f.object, :status)
+            - else
+              .form-group
+                %label.pull-left
+                  Title
+                = f.text_field :title, class: "form-control"
+                .field-error
+                  = show_error(f.object, :title)
+              .form-group
+                %label.pull-left
+                  Assignee
+                = f.select(:user_id, assignee_list, {}, {:class => "form-control custom-select"})
+                .field-error
+                  = show_error(f.object, :user_id)
+            %center
+              .form-group
+                .actions
+                  = f.submit 'Save', class: 'btn btn-primary'

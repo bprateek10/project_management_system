@@ -1,0 +1,21 @@
+.container.custom-container.container_with_top.project-members-container
+  .row
+    .col-sm-6
+      %h2 #{@project.title} Members
+  .option-section.new-resource-section.d-flex
+    = link_to "Add New Member", new_project_project_member_path(@project.id), class: 'btn btn-primary'
+  .report_data_table
+    %table.table.table-striped#project-memeber-table.auto_width
+      %thead
+        %tr
+          %th First Name
+          %th Last Name
+          %th Email
+          %th Action
+        %tbody
+          - if @project_members.present?
+            = render partial: 'project_member_data',  :collection => @project_members, :as => :project_member
+          - else
+            %tr
+              %td
+                No Record Found

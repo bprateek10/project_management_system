@@ -1,0 +1,21 @@
+.container.custom-container.container_with_top.todos-container
+  .row
+    .col-sm-6
+      %h2 #{@project.title} Todo's
+  .option-section.new-resource-section.d-flex
+    = link_to "Create New Todo", new_project_todo_path(@project.id), class: 'btn btn-primary'
+  .report_data_table
+    %table.table.table-striped#project-memeber-table.auto_width
+      %thead
+        %tr
+          %th title
+          %th Assignee
+          %th Status
+          %th Action
+        %tbody
+          - if @todos.present?
+            = render partial: 'todo_data',  :collection => @todos, :as => :todo
+          - else
+            %tr
+              %td
+                No Record Found

@@ -1,0 +1,11 @@
+%tr
+  %td=todo.title
+  %td=todo.user.name
+  %td=get_todo_status(todo)
+  %td
+    - if current_user.project_manager?
+      =link_to project_todo_path(@project.id, todo.id), method: :delete, data: { confirm: t(:sure_message) }, title: "Delete" do
+        %i.fa.fa-trash
+    - elsif current_user.developer?
+      =link_to edit_project_todo_path(@project.id, todo.id), title: "Update Status" do
+        %i.fa.fa-pencil

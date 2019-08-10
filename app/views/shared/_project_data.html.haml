@@ -1,0 +1,11 @@
+%tr
+  %td=project.title
+  %td{class: "#{project.id}-actions"}
+    - if current_user.project_manager?
+      = link_to project_project_members_path(project.id), title: "Project Member" do
+        %i.fa.fa-users
+    =link_to project_todos_path(project.id), title: "Tasks" do
+      %i.fa.fa-tasks
+    - if current_user.project_manager?
+      =link_to project_path(project.id), method: :delete, data: { confirm: "Are you sure?" }, title: "Delete Projects" do
+        %i.fa.fa-trash

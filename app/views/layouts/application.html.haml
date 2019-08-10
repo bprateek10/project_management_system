@@ -9,13 +9,15 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css", :rel => "stylesheet"}/
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"}
     %script{async: '', src: 'https://cdn.ywxi.net/js/1.js', type: 'text/javascript'}
-  %body.fixed-nav.sticky-footer.bg-dark#page-top
+  %body.fixed-nav.sticky-footer#page-top{:class => "current_user.present? ? '' : 'bg-dark'"}
     .flash_messages_div
       = bootstrap_flash
-    - if current_user
+    - unless params[:controller] == 'devise/sessions' && params[:action] == 'new'
       = render 'layouts/navigation'
-      .content-wrapper  
+      .content-wrapper
         = yield
         = render 'layouts/footer'
     - else

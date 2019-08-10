@@ -1,0 +1,20 @@
+.container.custom-container.project-container
+  .project-filters-section.reports-Header.pt-0
+    .option-section.new-resource-section.d-flex
+      = link_to "Create New Project", new_project_path, class: 'btn btn-primary'
+  .report_data_table
+    %table.table.table-striped#project-table.auto_width
+      %thead
+        %tr
+          %th Project Name
+          %th Action
+        %tbody
+          - if @projects.present?
+            = render partial: 'shared/project_data',  :collection => @projects, :as => :project
+          - else
+            %tr
+              %td
+                No Record Found
+  .col-sm-12.reports-Header.justify-content-end
+    #project-paginator.mb-0.paginator
+      = will_paginate @projects, 'data-turbolinks' => false, :previous_label => 'Previous', :next_label => 'Next'

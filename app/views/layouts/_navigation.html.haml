@@ -6,7 +6,7 @@
   #navbarResponsive.collapse.navbar-collapse.d-flex.justify-content-end.flex-row
     %ul#exampleAccordion.navbar-nav.navbar-sidenav
       %li.nav-item{'data-placement' => 'right', 'data-toggle' => 'tooltip', title: 'Users', class:('active' if params[:controller] == 'admin/sessions')}
-        =link_to 'javascript:void(0)', {class: 'nav-link'} do
+        =link_to new_invitation_path(:user), {class: 'nav-link'} do
           %i.fa.fa-male
           %span.nav-link-text Sessions
       %li.nav-item{'data-placement' => 'right', 'data-toggle' => 'tooltip', title: 'User', class:('active' if params[:controller] == 'admin/users')}

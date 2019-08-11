@@ -4,7 +4,9 @@
     - if current_user.project_manager?
       = link_to project_project_members_path(project.id), title: "Project Member" do
         %i.fa.fa-users
-    =link_to project_todos_path(project.id), title: "Tasks" do
+      = link_to statistics_project_path(project.id), title: "Statistics" do
+        %i.fa.fa-pie-chart
+    =link_to project_todos_path(project.id), title: "Todos" do
       %i.fa.fa-tasks
     - if current_user.project_manager?
       =link_to project_path(project.id), method: :delete, data: { confirm: "Are you sure?" }, title: "Delete Projects" do

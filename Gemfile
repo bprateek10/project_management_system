@@ -67,3 +67,4 @@ gem "font-awesome-rails"
 gem 'bootstrap', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'will_paginate'
+gem 'gon'

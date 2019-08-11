@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   constraints RoleRouteConstraint.new { |user| user.type == "ProjectManager" } do
     root to: 'project_managers#dashboard'
-    get 'dashboard', to: 'project_managersr#dashboard'
+    get 'dashboard', to: 'project_managers#dashboard'
   end
   constraints RoleRouteConstraint.new { |user| user.type == "Developer" } do
     root to: 'developers#dashboard'
@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :projects do
     resources :project_members
     resources :todos
+    member do
+      get 'statistics'
+    end
   end
 
 end

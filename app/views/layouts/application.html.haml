@@ -7,10 +7,12 @@
     = render 'layouts/meta_tags'
     = csrf_meta_tags
     = csp_meta_tag
+    = include_gon
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css", :rel => "stylesheet"}/
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"}
+    %script{:src => "https://www.gstatic.com/charts/loader.js", :type => "text/javascript"}
     %script{async: '', src: 'https://cdn.ywxi.net/js/1.js', type: 'text/javascript'}
   %body.fixed-nav.sticky-footer#page-top{:class => "current_user.present? ? '' : 'bg-dark'"}
     .flash_messages_div

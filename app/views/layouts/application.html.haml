@@ -14,13 +14,16 @@
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"}
     %script{:src => "https://www.gstatic.com/charts/loader.js", :type => "text/javascript"}
     %script{async: '', src: 'https://cdn.ywxi.net/js/1.js', type: 'text/javascript'}
-  %body.fixed-nav.sticky-footer#page-top{:class => "current_user.present? ? '' : 'bg-dark'"}
-    .flash_messages_div
-      = bootstrap_flash
+  %body.fixed-nav.sticky-footer#page-top{:class => current_user.present? ? '' : "bg-dark"}
+    
     - unless params[:controller] == 'devise/sessions' && params[:action] == 'new'
       = render 'layouts/navigation'
       .content-wrapper
+        .flash_messages_div
+          = bootstrap_flash
         = yield
         = render 'layouts/footer'
     - else
+      .flash_messages_div
+        = bootstrap_flash
       = yield

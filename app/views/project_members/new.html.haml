@@ -1,11 +1,11 @@
-= form_for @user_project, url: project_project_members_path(@project.id), html: {class: "form-horizontal center user-project-validation"} do |f|
+= form_for @user_project, url: project_project_members_path(@project.id), html: {class: "form-horizontal center member-validation"} do |f|
   .container.user_details
     %h3= "Add Member"
     .card
       .card-body
         .row
           .col-md-12
-            .form-group
+            .form-group.developer-list-section
               %label.pull-left
                 Member
               = f.select(:user_id, user_list, {}, {:class => "form-control custom-select"})

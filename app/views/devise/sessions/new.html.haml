@@ -3,7 +3,7 @@
     .card.card-login.mx-auto.mt-3
       .card-header Login
       .card-body
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'login-form'}) do |f|
           .form-group
             = f.label :email, 'Email address', for: 'exampleInputEmail1'
             = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', id: 'exampleInputEmail1', 'aria-describedby': 'emailHelp', placeholder: 'Enter email'

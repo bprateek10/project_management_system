@@ -28,8 +28,8 @@ drawChart = ->
   ]
   options =
     'title': 'Status report for ' + gon.project
-    'width': 900
-    'height': 800
+    'width': 600
+    'height': 600
   chart = new (google.visualization.PieChart)(document.getElementById('chart_div'))
   chart.draw data, options
   return

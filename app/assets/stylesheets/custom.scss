@@ -29,7 +29,12 @@ body.sticky-footer .content-wrapper{
 
 .project-container .report_data_table tbody tr td a{
   text-decoration: none !important;
-  margin-right: 5px;
+  margin-right: 40px;
+  color: black !important;
+}
+
+.project-container .report_data_table tbody tr td a:disabled{
+  opacity: 0.5;
 }
 
 .project-filters-section .form-control, .project-filters-section .btn-primary{
@@ -38,4 +43,8 @@ body.sticky-footer .content-wrapper{
 
 .new-resource-section{
   float: right;
+  margin-bottom: 10px;
+}
+.error{
+  color: red;
 }

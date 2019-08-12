@@ -1,7 +1,7 @@
 module ProjectMembersHelper
 
   def user_list
-    User.all.where.not(id: @project.users.pluck(:id), type: 'ProjectManager').map{|u| [u.name, u.id]}
+    User.all.where.not(id: @project.users.pluck(:id), type: 'ProjectManager').map{|u| [u.name, u.id]}.unshift(["Developer",""])
   end
 
   def get_user_project( user_id, project)

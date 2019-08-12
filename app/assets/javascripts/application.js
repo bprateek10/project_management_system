@@ -17,4 +17,6 @@
 //= require popper
 //= require bootstrap
 //= require jquery_ujs
+//= require jquery.validate
 //= require custom
+//= require validations

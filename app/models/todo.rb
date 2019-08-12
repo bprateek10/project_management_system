@@ -1,9 +1,17 @@
 class Todo < ApplicationRecord
+
+  #Associations
   belongs_to :user
   belongs_to :project
 
-  after_initialize :set_default_status, if: :new_record?
 
+  #Validations
+  validates :title, presence: true
+
+  #Callbacks
+  after_initialize :set_default_status, if: :new_record?
+  
+  #Enum
   enum status: {
     new_todo: "New",
     in_progress: "In Progress",

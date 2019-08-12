@@ -19,7 +19,7 @@
                 = f.text_field :title, class: "form-control"
                 .field-error
                   = show_error(f.object, :title)
-              .form-group
+              .form-group.assignee-list-section
                 %label.pull-left
                   Assignee
                 = f.select(:user_id, assignee_list, {}, {:class => "form-control custom-select"})

@@ -4,7 +4,7 @@
     - if current_user.project_manager?
       = link_to project_project_members_path(project.id), title: "Project Member" do
         %i.fa.fa-users
-      = link_to statistics_project_path(project.id), title: "Statistics" do
+      = link_to project.todos.present? ? statistics_project_path(project.id) : 'javascript:void(0)', disabled: "true", title: "Statistics"  do
         %i.fa.fa-pie-chart
     =link_to project_todos_path(project.id), title: "Todos" do
       %i.fa.fa-tasks

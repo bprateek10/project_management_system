@@ -18,6 +18,12 @@ Rails.application.routes.draw do
     get 'dashboard', to: 'developers#dashboard'
   end
 
+  resources :project_managers do
+    collection do
+      get 'project_wise_data'
+      get 'developer_wise_data'
+    end
+  end
   resources :projects do
     resources :project_members
     resources :todos

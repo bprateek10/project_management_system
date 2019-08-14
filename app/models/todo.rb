@@ -1,9 +1,8 @@
 class Todo < ApplicationRecord
-
+  
   #Associations
-  belongs_to :user
+  belongs_to :developer, class_name: 'Developer', foreign_key: 'developer_id'
   belongs_to :project
-
 
   #Validations
   validates :title, presence: true
@@ -23,4 +22,5 @@ class Todo < ApplicationRecord
   def set_default_status
     self.status = Todo.statuses[:new_todo]
   end
+
 end

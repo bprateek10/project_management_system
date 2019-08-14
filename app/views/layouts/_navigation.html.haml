@@ -5,10 +5,23 @@
     %span.navbar-toggler-icon
   #navbarResponsive.collapse.navbar-collapse.d-flex.justify-content-end.flex-row
     %ul#exampleAccordion.navbar-nav.navbar-sidenav
-      %li.nav-item{'data-placement' => 'right', 'data-toggle' => 'tooltip', title: 'Users', class:('active' if params[:controller] == 'admin/sessions')}
-        =link_to new_invitation_path(:user), {class: 'nav-link'} do
-          %i.fa.fa-user-plus
-          %span.nav-link-text Invite User
+      %li.nav-item{'data-placement' => 'right', 'data-toggle' => 'tooltip', title: 'Dashboard', class:('active' if(params[:controller] == 'project_managers' || params[:controller] == 'developers') && params[:action] == "dashboard")}
+        =link_to root_path(:user), {class: 'nav-link'} do
+          %i.fa.fa-dashcube
+          %span.nav-link-text Dashboard
+      - if current_user.project_manager?
+        %li.nav-item{'data-placement' => 'right', 'data-toggle' => 'tooltip', title: 'Users', class:('active' if params[:controller] == 'project_managers' && params[:action] == "project_wise_data")}
+          =link_to project_wise_data_project_managers_path, {class: 'nav-link'} do
+            %i.fa.fa-table
+            %span.nav-link-text Project-wise Data
+        %li.nav-item{'data-placement' => 'right', 'data-toggle' => 'tooltip', title: 'Users', class:('active' if params[:controller] == 'project_managers' && params[:action] == "developer_wise_data")}
+          =link_to developer_wise_data_project_managers_path, {class: 'nav-link'} do
+            %i.fa.fa-table
+            %span.nav-link-text Developer-wise Data
+        %li.nav-item{'data-placement' => 'right', 'data-toggle' => 'tooltip', title: 'Users', class:('active' if params[:controller] == 'invitations' && params[:action] == "new")}
+          =link_to new_invitation_path(:user), {class: 'nav-link'} do
+            %i.fa.fa-user-plus
+            %span.nav-link-text Invite User
     %ul.navbar-nav.sidenav-toggler
       %li.nav-item
         %a#sidenavToggler.nav-link.text-center

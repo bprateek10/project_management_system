@@ -21,7 +21,6 @@ class TodosController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
@@ -50,7 +49,7 @@ class TodosController < ApplicationController
   end
 
   def todo_params
-    params.require(:todo).permit(:title, :user_id, :status)
+    params.require(:todo).permit(:title, :developer_id, :status)
   end
 
 end

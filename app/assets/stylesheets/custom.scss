@@ -48,3 +48,14 @@ body.sticky-footer .content-wrapper{
 .error{
   color: red;
 }
+
+li{
+  list-style: none;
+}
+ul{
+  padding-left: 0;
+}
+
+.todo-list li{
+  font-weight: 100;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_11_183440) do
+ActiveRecord::Schema.define(version: 2019_08_14_184125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,14 +22,14 @@ ActiveRecord::Schema.define(version: 2019_08_11_183440) do
   end
 
   create_table "todos", force: :cascade do |t|
-    t.text "title"
-    t.bigint "user_id"
+    t.integer "developer_id"
     t.bigint "project_id"
+    t.string "title"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["developer_id"], name: "index_todos_on_developer_id"
     t.index ["project_id"], name: "index_todos_on_project_id"
-    t.index ["user_id"], name: "index_todos_on_user_id"
   end
 
   create_table "user_projects", force: :cascade do |t|
@@ -67,5 +67,4 @@ ActiveRecord::Schema.define(version: 2019_08_11_183440) do
   end
 
   add_foreign_key "todos", "projects"
-  add_foreign_key "todos", "users"
 end

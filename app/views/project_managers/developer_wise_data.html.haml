@@ -1,0 +1,19 @@
+.container.custom-container.project-container
+  .project-filters-section.reports-Header.pt-0
+    .report_data_table
+      %table.table.table-striped#project-table.auto_width
+        %thead
+          %tr
+            %th Status
+            - @developer_oriented_records.keys.each do |developer_name|
+              %th= developer_name
+          %tbody
+            - todo_statuses.each do |key, value|
+              %tr
+                %th= key
+                - @developer_oriented_records.values.each do |todo_data|
+                  %th
+                    - unless todo_data[value].nil?
+                      %ul.todo-list
+                        - todo_data[value].each do |todo|
+                          %li= todo.title

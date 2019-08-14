@@ -1,6 +1,6 @@
 %tr
   %td=todo.title
-  %td=todo.user.name
+  %td=todo.developer.name
   %td=get_todo_status(todo)
   %td
     - if current_user.project_manager?

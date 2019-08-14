@@ -22,7 +22,7 @@
               .form-group.assignee-list-section
                 %label.pull-left
                   Assignee
-                = f.select(:user_id, assignee_list, {}, {:class => "form-control custom-select"})
+                = f.select(:developer_id, assignee_list, {}, {:class => "form-control custom-select"})
                 .field-error
                   = show_error(f.object, :user_id)
             %center

@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   #Scopes
   scope :developers, -> { where(type: GlobalConstants::DEVELOPER) }
-  scope :project_maanagers, -> { where(type: GlobalConstants::PROJECT_MANAGER) }
+  scope :project_managers, -> { where(type: GlobalConstants::PROJECT_MANAGER) }
 
   #Instance Methods
   def name
